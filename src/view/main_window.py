@@ -17,6 +17,8 @@ class MainWindow(QWidget):
         self.table_size.setFont(QFont("Arial", 15))  # Set the font size to 12
         self.layout.addWidget(self.table_size)
 
+        self.layout.addSpacing(20)
+
         # QLabel for "Select Collision Resolution Technique"
         label_method = QLabel("Select Collision Resolution Technique")
         label_method.setFont(QFont("Arial", 15))  # Set the font size to 14
@@ -29,7 +31,7 @@ class MainWindow(QWidget):
         self.layout.addWidget(self.probing_method)
 
         # Add some spacing between the combo box and the "Create" button
-        self.layout.addSpacing(45)
+        self.layout.addSpacing(32)
 
         # QPushButton for "Create"
         self.create_button = QPushButton("Create")
@@ -45,4 +47,24 @@ class MainWindow(QWidget):
             "QLineEdit { background-color: white; color: navy; border: 2px solid navy; }"  # Set style for QLineEdit
             "QPushButton { background-color: navy; color: white; border: none; padding: 5px; }"  # Set style for QPushButton
             "QComboBox { background-color: white; color: navy; border: 2px solid navy; }"  # Set style for QComboBox
+        )
+
+        self.layout.addSpacing(45)
+
+        # QLabel for "Indexing Method"
+        label_method = QLabel("Indexing Method : ")
+        label_method.setFont(QFont("Arial", 15))  # Set the font size to 14
+        label_method.setStyleSheet("QLabel { color: #45a049; }")  # Set the font color
+        self.layout.addWidget(label_method)
+        self.layout.addSpacing(15)
+
+        # QPushButton for B+ Tree
+        self.b_plus_tree_button = QPushButton("B+ Tree")
+        self.b_plus_tree_button.setFont(QFont("Arial", 15))
+        self.layout.addWidget(self.b_plus_tree_button)
+
+        # Apply different style for B+ Tree button
+        self.b_plus_tree_button.setStyleSheet(
+            "QPushButton { background-color: #4CAF50; color: white; border: none; padding: 5px; }"  # Set green color
+            "QPushButton:hover { background-color: #45a049; }"  # Darker green on hover
         )
