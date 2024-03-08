@@ -60,7 +60,7 @@ class TableWindow(QWidget):
         layout = QVBoxLayout()
 
         layout_aux_input = QHBoxLayout()
-        label_key = QLabel("Key:")
+        label_key = QLabel("Key :")
         label_key.setStyleSheet("font-size: 18px;")  # Increase font size of label
         self.key_input.setPlaceholderText("Enter Key")  # Set placeholder text for key input
         self.key_input.setMinimumWidth(100)  # Set the minimum width
@@ -68,7 +68,7 @@ class TableWindow(QWidget):
         self.key_input.setStyleSheet("font-size: 14px;")  # Increase font size of placeholder text
         layout_aux_input.addWidget(label_key)
         layout_aux_input.addWidget(self.key_input)
-        label_element = QLabel("Element:")
+        label_element = QLabel("Element :")
         label_element.setStyleSheet("font-size: 18px;")  # Increase font size of label
         self.element_input.setPlaceholderText("Enter Element")  # Set placeholder text for element input
         self.key_input.setMinimumWidth(100)  # Set the minimum width
