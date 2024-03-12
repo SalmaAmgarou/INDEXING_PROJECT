@@ -18,11 +18,6 @@ class TableWindow(QWidget):
         self.available_button = QPushButton("Set Element Available")
         self.delete_available_button = QPushButton("Delete Elements Available")
 
-
-
-
-
-
         self.return_label = QLabel("Your hash table:")
         self.return_label.setStyleSheet("margin-top: 90px;")
 
@@ -135,3 +130,67 @@ class TableWindow(QWidget):
         font.setPointSize(12)
         button.setFont(font)
 
+    def insert_button_clicked(self):
+        key_text = self.key_input.text()
+        element_text = self.element_input.text()
+
+        if not key_text and not element_text:
+            QMessageBox.warning(self, "Missing Fields", "Please enter both Key and Element.")
+            return
+
+        try:
+            key = int(key_text)
+        except ValueError:
+            QMessageBox.warning(self, "Invalid Input", "Please enter a valid integer for Key.")
+            return
+
+        # Insert functionality here
+
+    def search_button_clicked(self):
+        key_text = self.key_input.text()
+
+        if not key_text:
+            QMessageBox.warning(self, "Missing Key", "Please enter the Key to search.")
+            return
+
+        try:
+            key = int(key_text)
+        except ValueError:
+            QMessageBox.warning(self, "Invalid Input", "Please enter a valid integer for Key.")
+            return
+
+        # Search functionality here
+
+    def delete_button_clicked(self):
+        key_text = self.key_input.text()
+
+        if not key_text:
+            QMessageBox.warning(self, "Missing Key", "Please enter the Key to delete.")
+            return
+
+        try:
+            key = int(key_text)
+        except ValueError:
+            QMessageBox.warning(self, "Invalid Input", "Please enter a valid integer for Key.")
+            return
+
+        # Delete functionality here
+
+    def available_button_clicked(self):
+        key_text = self.key_input.text()
+
+        if not key_text:
+            QMessageBox.warning(self, "Missing Key", "Please enter the Key to set as available.")
+            return
+
+        try:
+            key = int(key_text)
+        except ValueError:
+            QMessageBox.warning(self, "Invalid Input", "Please enter a valid integer for Key.")
+            return
+
+        # Set available functionality here
+
+    def delete_available_button_clicked(self):
+        # Delete available functionality here
+        pass

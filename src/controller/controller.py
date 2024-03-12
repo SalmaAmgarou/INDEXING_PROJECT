@@ -1,8 +1,6 @@
 from src.domain.hash import Hash
 from src.view.main_window import MainWindow
-from src.domain.b_plus_tree import BPlusTree  # Import the B+ tree class
 from src.view.table_window import TableWindow
-from src.view.b_plus_tree_window import BPlusTreeWindow
 
 
 class Controller:
@@ -10,8 +8,6 @@ class Controller:
         self.main_window = MainWindow()
         self.table_window = TableWindow()
         self.hash_object = Hash()
-        self.b_plus_tree = BPlusTree()
-        self.b_plus_tree_window = BPlusTreeWindow()
         self.connect_events()
 
     def connect_events(self):
@@ -21,7 +17,6 @@ class Controller:
         self.table_window.delete_button.clicked.connect(self.delete_element)
         self.table_window.available_button.clicked.connect(self.set_element_available)
         self.table_window.delete_available_button.clicked.connect(self.delete_all_available_elements)
-        self.main_window.b_plus_tree_button.clicked.connect(self.show_b_plus_tree_page)
 
     def insert_element(self):
         if self.main_window.probing_method.currentText() == "Linear Probing":
@@ -68,5 +63,4 @@ class Controller:
         self.table_window.create_table(self.hash_object.hash_table)
 
 
-    def show_b_plus_tree_page(self):
-        self.b_plus_tree_window.show()
+

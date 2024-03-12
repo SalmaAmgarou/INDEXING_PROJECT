@@ -42,7 +42,7 @@ class MainWindow(QWidget):
 
         # Apply style sheets to change colors
         self.setStyleSheet(
-            "QWidget { background-color: lightblue; }"  # Set background color for the entire window
+            "QWidget { background-color: #f0f0f0; }"  # Set background color for the entire window
             "QLabel { color: navy; font-weight: bold; }"  # Set font color and style for QLabel
             "QLineEdit { background-color: white; color: navy; border: 2px solid navy; }"  # Set style for QLineEdit
             "QPushButton { background-color: navy; color: white; border: none; padding: 5px; }"  # Set style for QPushButton
@@ -50,21 +50,15 @@ class MainWindow(QWidget):
         )
 
         self.layout.addSpacing(45)
+        self.create_button.clicked.connect(self.create_button_clicked)
 
-        # QLabel for "Indexing Method"
-        label_method = QLabel("Indexing Method : ")
-        label_method.setFont(QFont("Arial", 15))  # Set the font size to 14
-        label_method.setStyleSheet("QLabel { color: #45a049; }")  # Set the font color
-        self.layout.addWidget(label_method)
-        self.layout.addSpacing(15)
+    def create_button_clicked(self):
+        try:
+            table_size = int(self.table_size.text())
+        except ValueError:
+            QMessageBox.warning(self, "Invalid Input", "Please enter a valid size for the hash table.")
+            return
 
-        # QPushButton for B+ Tree
-        self.b_plus_tree_button = QPushButton("B+ Tree")
-        self.b_plus_tree_button.setFont(QFont("Arial", 15))
-        self.layout.addWidget(self.b_plus_tree_button)
-
-        # Apply different style for B+ Tree button
-        self.b_plus_tree_button.setStyleSheet(
-            "QPushButton { background-color: #4CAF50; color: white; border: none; padding: 5px; }"  # Set green color
-            "QPushButton:hover { background-color: #45a049; }"  # Darker green on hover
-        )
+        if table_size <= 0:
+            QMessageBox.warning(self, "Invalid Input", "Size of the hash table must be greater than zero.")
+            return
